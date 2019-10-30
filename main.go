@@ -28,7 +28,9 @@ func printer(done chan bool) {
 		case <-done:
 			return
 		case <-ticker:
-			fmt.Printf("0x%016x\r", Counter)
+			// 1<<64-1 as decimal - 18446744073709551615
+			fmt.Printf("%020d\r", Counter)
+			// fmt.Printf("0x%016x\r", Counter)
 		}
 	}
 }
