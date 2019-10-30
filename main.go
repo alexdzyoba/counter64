@@ -28,7 +28,7 @@ func printer(done chan bool) {
 		case <-done:
 			return
 		case <-ticker:
-			fmt.Printf("0x%016x\n", Counter)
+			fmt.Printf("0x%016x\r", Counter)
 		}
 	}
 }
