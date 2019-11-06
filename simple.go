@@ -6,7 +6,7 @@ type counter struct {
 	i uint64
 }
 
-func (c counter) Count(done chan bool) {
+func (c *counter) Count(done chan bool) {
 	for {
 		select {
 		case <-done:
@@ -17,6 +17,6 @@ func (c counter) Count(done chan bool) {
 	}
 }
 
-func (c counter) Read() uint64 {
+func (c *counter) Read() uint64 {
 	return c.i
 }

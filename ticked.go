@@ -16,7 +16,7 @@ type counterTicked struct {
 	rand *rand.Rand
 }
 
-func (c counterTicked) Count(done chan bool) {
+func (c *counterTicked) Count(done chan bool) {
 	defer c.ticker.Stop()
 	for {
 		select {
@@ -29,6 +29,6 @@ func (c counterTicked) Count(done chan bool) {
 	}
 }
 
-func (c counterTicked) Read() uint64 {
+func (c *counterTicked) Read() uint64 {
 	return c.i
 }
